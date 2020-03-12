@@ -7,4 +7,7 @@
     <string name="favorite_actors_text">Favorite actors</string>
     <string name="about_program_text">About program</string>
     <string name="requestError">Error with get movies list</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
