@@ -1,18 +1,16 @@
 package com.startandroid.myapplicationforvitalik
 
 import android.view.LayoutInflater
-import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import kotlinx.android.synthetic.main.fragment_movies_list.*
 import android.os.Bundle
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import retrofit2.Call
 import retrofit2.Callback
@@ -97,12 +95,14 @@ class Adapter(private val moviesList: List<MoviesData>) :
 
     inner class MoviesViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val poster: ImageView = itemView.findViewById(R.id.movie_poster)
+        val name: TextView = itemView.findViewById(R.id.movie_name)
+        val description : TextView = itemView.findViewById(R.id.movie_description)
 
         fun bind(movie: MoviesData){
-            Glide.with(itemView).load("https://image.tmdb.org/t/p/w92${movie.poster_path}")
+            name.setText(movie.original_title)
+            description.setText(movie.overview)
+            Glide.with(itemView).load("https://image.tmdb.org/t/p/w780${movie.poster_path}")
                 .into(poster)
-
-            //in here
         }
     }
 }
